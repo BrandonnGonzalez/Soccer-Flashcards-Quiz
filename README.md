@@ -1,17 +1,42 @@
-# React + Vite
+# Soccer Flashcards Quiz ⚽
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive flashcard quiz application to test your Premier League knowledge!
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🃏 Interactive flashcard system with flip animations
+- ⚡ Built with React + Vite for fast performance
+- 🎨 Modern UI with gradient cards and smooth transitions
+- 📱 Responsive design that works on all devices
+- 🔀 Navigate between questions with Previous/Next buttons
+- 🔄 Restart quiz option when you reach the end
 
-## React Compiler
+## How to Use
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Click "Start Quiz" to begin
+2. Click on any card to flip and reveal the answer
+3. Use Previous/Next buttons to navigate between questions
+4. Click "Start Over" to restart the quiz
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Soccer-Flashcards-Quiz
+- React 18
+- Vite
+- CSS3 with Flexbox
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+## Project by
+
+Brandon Gonzalez®
