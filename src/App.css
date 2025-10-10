@@ -123,6 +123,52 @@
   cursor: not-allowed;
 }
 
+/* Guess Section */
+.guess-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.guess-section input {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid #646cff;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.guess-section input.correct {
+  border-color: #22c55e;
+  background-color: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.guess-section input.incorrect {
+  border-color: #ef4444;
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-weight: 600;
+}
+
+.guess-section button {
+  background: #646cff;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.guess-section button:hover {
+  background: #535bf2;
+}
+
 /* Footer Styles */
 .footer {
   margin-top: 3rem;

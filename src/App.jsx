@@ -29,6 +29,9 @@ function App() {
   const [quizStarted, setQuizStarted] = useState(false);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [userGuess, setUserGuess] = useState('');
+  const [hasGuessed, setHasGuessed] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
   const startQuiz = () => {
     setQuizStarted(true);
@@ -40,10 +43,29 @@ function App() {
     setIsFlipped(!isFlipped);
   };
 
+  // Simple answer checking - ignores case and extra spaces
+  const checkAnswer = (guess, correctAnswer) => {
+    const cleanGuess = guess.toLowerCase().trim();
+    const cleanAnswer = correctAnswer.toLowerCase().trim();
+    return cleanGuess === cleanAnswer;
+  };
+
+  const submitAnswer = () => {
+    if (userGuess.trim() !== '') {
+      const correct = checkAnswer(userGuess, questionsAndAnswers[currentCardIndex].answer);
+      setIsCorrect(correct);
+      setHasGuessed(true);
+      setIsFlipped(true);
+    }
+  };
+
   const goToNextCard = () => {
     if (currentCardIndex < questionsAndAnswers.length - 1) {
       setCurrentCardIndex(currentCardIndex + 1);
       setIsFlipped(false);
+      setUserGuess('');
+      setHasGuessed(false);
+      setIsCorrect(false);
     }
   };
 
@@ -51,6 +73,9 @@ function App() {
     if (currentCardIndex > 0) {
       setCurrentCardIndex(currentCardIndex - 1);
       setIsFlipped(false);
+      setUserGuess('');
+      setHasGuessed(false);
+      setIsCorrect(false);
     }
   };
 
@@ -81,6 +106,22 @@ function App() {
               isFlipped={isFlipped}
               onCardClick={handleCardClick}
             />
+            
+            <div className="guess-section">
+              <p>Enter your guess:</p>
+              <input 
+                type="text" 
+                placeholder="Type your answer..." 
+                value={userGuess}
+                onChange={(e) => setUserGuess(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && submitAnswer()}
+                className={hasGuessed ? (isCorrect ? 'correct' : 'incorrect') : ''}
+                disabled={hasGuessed}
+              />
+              {!hasGuessed && (
+                <button onClick={submitAnswer}>Submit</button>
+              )}
+            </div>
             
             <div className="navigation-buttons">
               <button 
